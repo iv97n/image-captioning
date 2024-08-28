@@ -38,6 +38,7 @@ class CocoDataset(Dataset):
     def __len__(self):
         return len(self.keys)
 
+
 def coco_batch(coco_data):
     """
     Create mini_batch tensors from the list of tuples, this is to match the output of __getitem__()

@@ -13,6 +13,7 @@ nltk = "^3.8.1"
 pycocotools = "^2.0.7"
 matplotlib = "^3.9.0"
 argparse = "^1.4.0"
+streamlit = "^1.38.0"
 
 
 [build-system]

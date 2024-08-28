@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import argparse
+import streamlit as st
 from PIL import Image
 
 from image_captioning import NIC
@@ -12,14 +13,24 @@ from image_captioning import IMAGENET_IMAGE_SIZE, IMAGENET_IMAGE_MEAN, IMAGENET_
 from config import NUM_LAYERS, HIDDEN_SIZE, EMBED_SIZE, NIC_PATH, VOCAB_PATH
 
 
+# Title of the app
+st.title("Image Caption Generator")
 
+# Instruction for the user
+st.write("Upload an image and get a generated caption.")
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Caption generation project.")
-    parser.add_argument('--imagepath', type=str, help='Path to the input image')
+# Uploading the image
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-    args = parser.parse_args()
-    image_path = args.imagepath
+if uploaded_file is not None:
+    # Open the image file
+    img = Image.open(uploaded_file)
+
+    # Display the image
+    st.image(img, caption="Uploaded Image", use_column_width=True)
+
+    # Placeholder for caption generation
+    st.write("Generating caption...")
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -30,12 +41,10 @@ if __name__ == '__main__':
     nic.load_state_dict(torch.load(NIC_PATH))
     nic = nic.to(device)
 
-    # Load and transform the image, so it matches the COCO dataset specifications
-    img = Image.open(image_path)
     adjusted_img = resize_and_normalize_image(img, IMAGENET_IMAGE_SIZE, IMAGENET_IMAGE_SIZE, IMAGENET_IMAGE_MEAN,
                                               IMAGENET_IMAGE_STD)
     # Move the image to the device
-    image_tensor = adjusted_img .to(device)
+    image_tensor = adjusted_img.to(device)
 
     # Generate the final caption by generating first the corresponding words ids, and the using the Vocabulary to
     # obtain the words
@@ -52,12 +61,13 @@ if __name__ == '__main__':
     # Show the image and the caption
     sampled_caption = [word for word in sampled_caption if word not in ['<<start>>', '<<end>>']]
     sentence = ' '.join(sampled_caption)
-    image = Image.open(image_path)
-    plt.figure(figsize=(12, 8))
-    plt.text(0.5, 0, sentence, fontsize=12, fontweight='bold')
-    plt.imshow(np.asarray(image))
-    plt.axis('off')  # Turn off axis for pure text display
-    plt.show()
+
+    # Display the generated caption
+    st.write(f"Caption: **{sentence}**")
+
+# Footer or additional instructions
+st.write("Upload another image to generate a new caption.")
+
 
 
 

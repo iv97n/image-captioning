@@ -229,7 +229,7 @@ def bleu_score(input_imgs_path, generated_captions, name_caption_frame):
         theoratical_score += sentence_bleu(references[:i]+references[i+1:], references[i], smoothing_function=SmoothingFunction().method4)
         #print(references[:i]+references[i+1:],theoratical_score)
     theoratical_score /= 5.0
-    return generated_score,theoratical_score
+    return generated_score, theoratical_score
 
 
 def load_image(image_path, transform=None):
