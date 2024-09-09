@@ -1,18 +1,15 @@
 # [Deep Learning] - 2023/2024
 
 ### Authors:
-- Iván Hernández, [[iv97n_solos]](https://github.com/iv97n)
-- Marcel Fernández, [[marcel_drawer]](https://github.com/u198734)
-- Alejandro Pastor, [[alejandro_el_diablo]](https://github.com/u199327)
+- Iván Hernández, [[iv97n]](https://github.com/iv97n)
+- Marcel Fernández, [[u198734]](https://github.com/u198734)
+- Alejandro Pastor, [[u199327]](https://github.com/u199327)
 
 Dataset: [COCO Dataset, Image Captioning 2014](https://cocodataset.org/#home)  
 
 ### TL;DR  
-This repository contains code for the execution of a local image caption generator, which has been designed based on the architecture described in the paper [
-Show and Tell: A Neural Image Caption Generator](https://arxiv.org/abs/1411.4555). 
-
-_IMPORTANT NOTE_ : Only the main.py script is expected to be functional under the current project settings,
-nevertheless, other scripts like evaluate.py and train.py have also been utilized during the development of the project and have also played a fundamental role.  
+This repository contains code for the execution of a web-based image caption generator, which has been designed based on the architecture described in the paper [
+Show and Tell: A Neural Image Caption Generator](https://arxiv.org/abs/1411.4555).
 
 ### Presequisites
 - [Python Poetry](https://python-poetry.org/docs/)
