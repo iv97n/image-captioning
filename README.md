@@ -1,9 +1,9 @@
 # [Deep Learning] - 2023/2024
 
 ### Authors:
-- Iván Hernández, [[iv97n]](https://github.com/iv97n)
-- Marcel Fernández, [[marcel_gamer]](https://github.com/u198734)
-- Alejandro Pastor, [[alejandro_el_picanton]](https://github.com/u199327)
+- Iván Hernández, [[iv97n_solos]](https://github.com/iv97n)
+- Marcel Fernández, [[marcel_drawer]](https://github.com/u198734)
+- Alejandro Pastor, [[alejandro_el_diablo]](https://github.com/u199327)
 
 Dataset: [COCO Dataset, Image Captioning 2014](https://cocodataset.org/#home)  
 
@@ -31,7 +31,7 @@ mkdir model
 ```bash
 mkdir data
 ```
-- Install the dependecies running poetry install in the project root directory
+- Install the dependecies running poetry install in the project root directory. This might take a few minutes.
 ```bash
 poetry install
 ```
