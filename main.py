@@ -1,16 +1,12 @@
 import torch
 import pickle
-import numpy as np
-import matplotlib.pyplot as plt
-import argparse
 import streamlit as st
 from PIL import Image
 
 from image_captioning import NIC
-from image_captioning import Vocabulary
 from image_captioning import resize_and_normalize_image
 from image_captioning import IMAGENET_IMAGE_SIZE, IMAGENET_IMAGE_MEAN, IMAGENET_IMAGE_STD
-from config import NUM_LAYERS, HIDDEN_SIZE, EMBED_SIZE, NIC_PATH, VOCAB_PATH
+from assets.config import NUM_LAYERS, HIDDEN_SIZE, EMBED_SIZE, NIC_PATH, VOCAB_PATH
 
 
 # Title of the app
